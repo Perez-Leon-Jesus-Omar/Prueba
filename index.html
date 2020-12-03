@@ -14,6 +14,7 @@
     targetPage = tmpTargetPage;
     function validURL(url) {
         try {
+            
             url = decodeURIComponent(url);
         }
         catch (error) {
@@ -24,6 +25,7 @@
             return false;
         var allowNumber = false;
         var allowSep = false;
+        
         var seenDot = false;
         for (var i = 0; i < url.length - 5; i++) {
             var ch = url.charAt(i);
@@ -35,6 +37,7 @@
                 allowNumber = true;
                 allowSep = true;
             } else if ('0' <= ch && ch <= '9'
+                       
                     || ch == '-') {
                 if (!allowNumber)
                      return false;
@@ -46,6 +49,7 @@
                 if (ch == '.')
                      seenDot = true;
                 if (ch == '/' && seenDot)
+                    
                      return false;
             } else {
                 return false;
